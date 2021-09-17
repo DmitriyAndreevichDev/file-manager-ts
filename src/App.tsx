@@ -19,34 +19,27 @@ const App: React.FC = () => {
 
     const toggleActiveStyles = (el: string): string => {
         if (el === activeFile) {
-            return `box active`
+            return "box active"
         } else {
-            return `box inactive`
+            return "box inactive"
         }
     };
-
 
     return (
         <div className="App">
             <ControlBar/>
-            <div className={`content`}>
+            <div className="content">
                 <PopUp/>
                 <PopupFile/>
-                <div className={`content__files-wrap`}>
-                    {
-                        currentFiles.map((file: FileType) =>
-                            <div
-                                className={toggleActiveStyles(file.id)}
-                                onClick={() => {
-                                    setActiveFile(file.id)
-                                }}
-
-                            >
-                                <File key={file.id} file={file}/>
-                            </div>
-                        )
-                    }
-
+                <div className="content__files-wrap">
+                    {currentFiles.map((file: FileType) =>
+                        <div
+                            className={toggleActiveStyles(file.id)}
+                            onClick={() => {setActiveFile(file.id)}}
+                        >
+                            <File key={file.id} file={file}/>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

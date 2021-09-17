@@ -12,7 +12,7 @@ const SET_ADDRESS_BAR = `SET_ADDRESS_BAR`;
 
 export type InitialStateType = {
     files: Array<FileType>
-    activeFile: string|null
+    activeFile: string | null
     currentDir: string
     currentFile: string
     isOpenPopUp: boolean
@@ -50,14 +50,15 @@ const initialState: InitialStateType = {
 };
 
 
-export const filesReducer = (state = initialState, action: ActionsTypes):InitialStateType => {
+export const filesReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
+
         case ADD_FILE:
             return {
                 ...state,
                 files: [...state.files, action.payload,],
-
             };
+
         case IS_OPEN_POPUP:
             return {
                 ...state,
@@ -69,11 +70,13 @@ export const filesReducer = (state = initialState, action: ActionsTypes):Initial
                 ...state,
                 currentDir: action.payload,
             };
+
         case PUSH_TO_STACK:
             return {
                 ...state,
                 dirStack: [...state.dirStack, action.payload]
             };
+
         case REMOVE_TO_STACK:
             return {
                 ...state,
@@ -85,11 +88,13 @@ export const filesReducer = (state = initialState, action: ActionsTypes):Initial
                 ...state,
                 currentFile: action.payload
             };
+
         case IS_OPEN_POPUP_FILE:
             return {
                 ...state,
                 isOpenPopupFile: action.payload
             };
+
         case SET_CURRENT_FILE_NAME:
             return {
                 ...state,
@@ -157,9 +162,9 @@ type IsOpenPopupFileActionType = {type: typeof IS_OPEN_POPUP_FILE, payload: bool
 export const isOpenPopupFile = (init:boolean):IsOpenPopupFileActionType => ({type: IS_OPEN_POPUP_FILE, payload: init});
 
 type SetCurrentFileNameActionType = {type: typeof SET_CURRENT_FILE_NAME, payload: string}
-export const setCurrentFileName = (name:string):SetCurrentFileNameActionType => ({type: SET_CURRENT_FILE_NAME, payload: name});
+export const setCurrentFileName = (name: string): SetCurrentFileNameActionType => ({type: SET_CURRENT_FILE_NAME, payload: name});
 type SetCurrentFileTextActionType = {type: typeof SET_CURRENT_FILE_TEXT, payload: string}
-export const setCurrentFileText = (text:string):SetCurrentFileTextActionType => ({type: SET_CURRENT_FILE_TEXT, payload: text});
+export const setCurrentFileText = (text: string): SetCurrentFileTextActionType => ({type: SET_CURRENT_FILE_TEXT, payload: text});
 
-type SetAddressBarActionType = {type: typeof SET_ADDRESS_BAR, payload:string}
-export const setAddressBar = (address:string):SetAddressBarActionType => ({type: SET_ADDRESS_BAR, payload: address});
+type SetAddressBarActionType = {type: typeof SET_ADDRESS_BAR, payload: string}
+export const setAddressBar = (address: string): SetAddressBarActionType => ({type: SET_ADDRESS_BAR, payload: address});

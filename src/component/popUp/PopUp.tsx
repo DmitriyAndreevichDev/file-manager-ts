@@ -47,8 +47,7 @@ const PopUp: React.FC = () => {
 
 
     return (
-        <div className="popUp">
-            <Dialog open={PopUp}>
+            <Dialog open={PopUp} className="popUp">
                 <div className={`popup__content`}>
 
                     <DialogTitle id="simple-dialog-title">Create</DialogTitle>
@@ -81,8 +80,6 @@ const PopUp: React.FC = () => {
                 </div>
 
             </Dialog>
-
-        </div>
     );
 };
 
