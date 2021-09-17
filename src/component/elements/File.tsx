@@ -41,7 +41,7 @@ const File: FC<PropsType> = ({file}) => {
             <div>
                 <Button onDoubleClick={openDirHandler}>
                     <div className="folder-wrap">
-                        <FolderIcon color="primary" fontSize={`large`}/> :
+                        <FolderIcon color="primary" fontSize={`large`}/>
                         <p>{file.name}</p>
                     </div>
                 </Button>
